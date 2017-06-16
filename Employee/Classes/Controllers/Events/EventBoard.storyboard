@@ -1,0 +1,1388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Medium.otf">
+            <string>SFUIText-Medium</string>
+        </array>
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Events Feed View Controller-->
+        <scene sceneID="uL4-5X-ZS9">
+            <objects>
+                <viewController storyboardIdentifier="EventsViewController" id="kmo-Ml-RBr" customClass="EventsFeedViewController" customModule="JoinMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="988-W5-IZV"/>
+                        <viewControllerLayoutGuide type="bottom" id="2LX-gL-ZAD"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="rR9-jM-DVp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sF2-03-PKe" customClass="JMSegmentedControlView" customModule="JoinMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                <color key="backgroundColor" red="0.01388947852" green="0.60620111229999996" blue="0.89712303879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="iIJ-OE-vnD">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                    </constraint>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentSelectedColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentTextColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentSelectedTextColor">
+                                        <color key="value" red="0.015686274510000001" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpi-qV-aIN">
+                                <rect key="frame" x="0.0" y="113" width="375" height="554"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В этом городе пока нет мероприятий " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BL9-bu-oB9">
+                                        <rect key="frame" x="99.5" y="263" width="176" height="28"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="BL9-bu-oB9" firstAttribute="centerY" secondItem="cpi-qV-aIN" secondAttribute="centerY" id="1Bu-OD-nc7"/>
+                                    <constraint firstItem="BL9-bu-oB9" firstAttribute="centerX" secondItem="cpi-qV-aIN" secondAttribute="centerX" id="sdD-fx-yXX"/>
+                                    <constraint firstItem="BL9-bu-oB9" firstAttribute="width" secondItem="cpi-qV-aIN" secondAttribute="width" multiplier="150:320" id="tgW-po-W0D"/>
+                                </constraints>
+                            </view>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MNR-lr-idE">
+                                <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <view key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" id="Z4I-NA-1Cy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMB-vx-nMY">
+                                            <rect key="frame" x="10" y="34" width="310" height="1"/>
+                                            <color key="backgroundColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="j09-Zl-BnS"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdV-Da-2Xe" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="34" width="310" height="34"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                            <state key="normal">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Город"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                    <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="underLineColor">
+                                                    <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value="Гюмри"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="selectPlaceButtonClicked:" destination="kmo-Ml-RBr" eventType="touchUpInside" id="qgT-pB-cQb"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3H-HL-M41" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="34"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                            <state key="normal">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Страна"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                    <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="underLineColor">
+                                                    <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value="Армения"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="selectPlaceButtonClicked:" destination="kmo-Ml-RBr" eventType="touchUpInside" id="UOi-Ql-wfl"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="e3H-HL-M41" firstAttribute="leading" secondItem="Z4I-NA-1Cy" secondAttribute="leading" id="2zo-7t-jF5"/>
+                                        <constraint firstAttribute="trailing" secondItem="cMB-vx-nMY" secondAttribute="trailing" id="AYa-He-EyS"/>
+                                        <constraint firstAttribute="trailing" secondItem="jdV-Da-2Xe" secondAttribute="trailing" constant="10" id="GZj-bH-bep"/>
+                                        <constraint firstAttribute="bottom" secondItem="jdV-Da-2Xe" secondAttribute="bottom" id="JSJ-iG-ecI"/>
+                                        <constraint firstAttribute="height" constant="68" id="NES-Kl-Lsi">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="108"/>
+                                        </constraint>
+                                        <constraint firstItem="cMB-vx-nMY" firstAttribute="centerY" secondItem="Z4I-NA-1Cy" secondAttribute="centerY" id="R1u-Hk-rws"/>
+                                        <constraint firstItem="e3H-HL-M41" firstAttribute="top" secondItem="Z4I-NA-1Cy" secondAttribute="top" id="Svd-Rg-A7n"/>
+                                        <constraint firstItem="jdV-Da-2Xe" firstAttribute="top" secondItem="e3H-HL-M41" secondAttribute="bottom" id="bDh-UC-4M1"/>
+                                        <constraint firstItem="jdV-Da-2Xe" firstAttribute="leading" secondItem="Z4I-NA-1Cy" secondAttribute="leading" id="g2P-x5-D8u"/>
+                                        <constraint firstAttribute="trailing" secondItem="e3H-HL-M41" secondAttribute="trailing" constant="10" id="s9e-GT-Q2d"/>
+                                        <constraint firstItem="jdV-Da-2Xe" firstAttribute="height" secondItem="e3H-HL-M41" secondAttribute="height" id="tpH-Mi-fXG"/>
+                                        <constraint firstItem="cMB-vx-nMY" firstAttribute="width" secondItem="Z4I-NA-1Cy" secondAttribute="width" multiplier="310:320" id="uyl-UN-hAw"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MNR-lr-idE" secondAttribute="trailing" id="03e-qr-pal"/>
+                            <constraint firstItem="MNR-lr-idE" firstAttribute="top" secondItem="sF2-03-PKe" secondAttribute="bottom" id="0to-Wi-1cK"/>
+                            <constraint firstItem="2LX-gL-ZAD" firstAttribute="top" secondItem="MNR-lr-idE" secondAttribute="bottom" id="1GJ-Xv-Lld"/>
+                            <constraint firstItem="2LX-gL-ZAD" firstAttribute="top" secondItem="cpi-qV-aIN" secondAttribute="bottom" id="IiG-Q2-eVr"/>
+                            <constraint firstItem="MNR-lr-idE" firstAttribute="leading" secondItem="rR9-jM-DVp" secondAttribute="leading" id="LlJ-Y8-zS9"/>
+                            <constraint firstItem="cpi-qV-aIN" firstAttribute="leading" secondItem="rR9-jM-DVp" secondAttribute="leading" id="OE4-g5-twf"/>
+                            <constraint firstItem="sF2-03-PKe" firstAttribute="leading" secondItem="rR9-jM-DVp" secondAttribute="leading" id="brJ-xb-tge"/>
+                            <constraint firstAttribute="trailing" secondItem="cpi-qV-aIN" secondAttribute="trailing" id="mqz-c3-KmD"/>
+                            <constraint firstItem="sF2-03-PKe" firstAttribute="top" secondItem="988-W5-IZV" secondAttribute="bottom" id="oQ6-OP-o9N"/>
+                            <constraint firstAttribute="trailing" secondItem="sF2-03-PKe" secondAttribute="trailing" id="ptg-BL-IS8"/>
+                            <constraint firstItem="cpi-qV-aIN" firstAttribute="top" secondItem="sF2-03-PKe" secondAttribute="bottom" constant="68" id="s2x-vT-gdA">
+                                <variation key="heightClass=regular-widthClass=regular" constant="108"/>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Aou-er-z5A"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="emptyView" destination="cpi-qV-aIN" id="Dys-Qn-Uc1"/>
+                        <outlet property="eventTableView" destination="MNR-lr-idE" id="ME5-UD-pwN"/>
+                        <outlet property="segmentControlView" destination="sF2-03-PKe" id="0zI-MF-Fdk"/>
+                        <outlet property="selectCityButton" destination="jdV-Da-2Xe" id="ID5-z7-yZ4"/>
+                        <outlet property="selectCountryButton" destination="e3H-HL-M41" id="nip-wg-Psl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m1x-oK-p5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="396" y="-133"/>
+        </scene>
+        <!--Event View Controller-->
+        <scene sceneID="zF3-Cn-cur">
+            <objects>
+                <viewController storyboardIdentifier="EventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mYQ-fg-mu4" customClass="EventViewController" customModule="JoinMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7zS-QR-SBv"/>
+                        <viewControllerLayoutGuide type="bottom" id="hDs-rQ-z7d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kNf-hZ-4E2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9EG-AO-bLg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" id="4jX-sW-qIb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view key="tableFooterView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" id="Cp0-tT-8uF">
+                                    <rect key="frame" x="0.0" y="1" width="375" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите текст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fZh-k8-PLc">
+                                            <rect key="frame" x="8" y="8" width="223" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" red="0.01176470588" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgJ-Es-MnK">
+                                            <rect key="frame" x="241" y="0.0" width="69" height="46"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="RgJ-Es-MnK" secondAttribute="height" multiplier="3:2" id="YDH-Cr-tcz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
+                                            <state key="normal" title="Отпр.">
+                                                <color key="titleColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="sendCommentButtonClicked:" destination="mYQ-fg-mu4" eventType="touchUpInside" id="b4N-th-kjI"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.91372549020000005" green="0.91764705879999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="fZh-k8-PLc" firstAttribute="height" secondItem="Cp0-tT-8uF" secondAttribute="height" constant="-16" id="Cv8-3K-vKG"/>
+                                        <constraint firstItem="RgJ-Es-MnK" firstAttribute="height" secondItem="Cp0-tT-8uF" secondAttribute="height" id="WzO-k4-T12"/>
+                                        <constraint firstItem="RgJ-Es-MnK" firstAttribute="centerY" secondItem="Cp0-tT-8uF" secondAttribute="centerY" id="Y24-tE-qYG"/>
+                                        <constraint firstItem="fZh-k8-PLc" firstAttribute="centerY" secondItem="Cp0-tT-8uF" secondAttribute="centerY" id="pAx-41-yyP"/>
+                                        <constraint firstItem="fZh-k8-PLc" firstAttribute="leading" secondItem="Cp0-tT-8uF" secondAttribute="leading" constant="8" id="q1i-MN-TN9"/>
+                                        <constraint firstAttribute="trailing" secondItem="RgJ-Es-MnK" secondAttribute="trailing" constant="10" id="qXU-Xv-b9x"/>
+                                        <constraint firstItem="RgJ-Es-MnK" firstAttribute="leading" secondItem="fZh-k8-PLc" secondAttribute="trailing" constant="10" id="vZW-sQ-HRM"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9EG-AO-bLg" firstAttribute="leading" secondItem="kNf-hZ-4E2" secondAttribute="leading" id="SES-gS-9PO"/>
+                            <constraint firstItem="9EG-AO-bLg" firstAttribute="top" secondItem="7zS-QR-SBv" secondAttribute="bottom" id="TbJ-Fn-jCc"/>
+                            <constraint firstAttribute="trailing" secondItem="9EG-AO-bLg" secondAttribute="trailing" id="jMh-g4-kyR"/>
+                            <constraint firstItem="hDs-rQ-z7d" firstAttribute="top" secondItem="9EG-AO-bLg" secondAttribute="bottom" id="jNM-k4-25O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commentFooterView" destination="Cp0-tT-8uF" id="svN-H6-0e0"/>
+                        <outlet property="commentTextField" destination="fZh-k8-PLc" id="Hvq-e3-UMd"/>
+                        <outlet property="tableView" destination="9EG-AO-bLg" id="BlC-rc-ESr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rn5-29-FVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-28.125" y="525"/>
+        </scene>
+        <!--Private View Controller-->
+        <scene sceneID="VWR-ud-15g">
+            <objects>
+                <viewController storyboardIdentifier="PrivateViewController" id="cFK-aU-p45" customClass="PrivateViewController" customModule="JoinMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lmo-jn-cyn"/>
+                        <viewControllerLayoutGuide type="bottom" id="n3M-oC-MHp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E0A-1S-gOp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdC-a3-jGR" customClass="JMSegmentedControlView" customModule="JoinMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                <color key="backgroundColor" red="0.01388947852" green="0.60620111229999996" blue="0.89712303879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="GX1-go-wSw">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                    </constraint>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentSelectedColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentTextColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentSelectedTextColor">
+                                        <color key="value" red="0.015686274510000001" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nmv-XS-boL">
+                                <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCR-zm-IJn">
+                                <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приватных событий пока нету" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThX-pg-9hz">
+                                        <rect key="frame" x="99.5" y="304" width="176" height="14"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ThX-pg-9hz" firstAttribute="width" secondItem="rCR-zm-IJn" secondAttribute="width" multiplier="150:320" id="1fo-Be-EtO"/>
+                                    <constraint firstItem="ThX-pg-9hz" firstAttribute="centerX" secondItem="rCR-zm-IJn" secondAttribute="centerX" id="cf8-nk-1ZG"/>
+                                    <constraint firstItem="ThX-pg-9hz" firstAttribute="centerY" secondItem="rCR-zm-IJn" secondAttribute="centerY" id="rTI-pr-DWZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Nmv-XS-boL" secondAttribute="trailing" id="EBQ-am-pLy"/>
+                            <constraint firstItem="sdC-a3-jGR" firstAttribute="leading" secondItem="E0A-1S-gOp" secondAttribute="leading" id="Ga6-UQ-3gf"/>
+                            <constraint firstAttribute="trailing" secondItem="rCR-zm-IJn" secondAttribute="trailing" id="LRx-Ww-U3R"/>
+                            <constraint firstItem="Nmv-XS-boL" firstAttribute="leading" secondItem="E0A-1S-gOp" secondAttribute="leading" id="T6y-2F-Hbv"/>
+                            <constraint firstItem="Nmv-XS-boL" firstAttribute="top" secondItem="sdC-a3-jGR" secondAttribute="bottom" id="Wge-FF-YNO"/>
+                            <constraint firstItem="rCR-zm-IJn" firstAttribute="top" secondItem="sdC-a3-jGR" secondAttribute="bottom" id="Y3y-1A-ReP"/>
+                            <constraint firstItem="n3M-oC-MHp" firstAttribute="top" secondItem="rCR-zm-IJn" secondAttribute="bottom" id="dV3-jw-LlB"/>
+                            <constraint firstItem="sdC-a3-jGR" firstAttribute="top" secondItem="Lmo-jn-cyn" secondAttribute="bottom" id="j6p-qu-BhH"/>
+                            <constraint firstItem="rCR-zm-IJn" firstAttribute="leading" secondItem="E0A-1S-gOp" secondAttribute="leading" id="tgx-wj-aAj"/>
+                            <constraint firstItem="n3M-oC-MHp" firstAttribute="top" secondItem="Nmv-XS-boL" secondAttribute="bottom" id="x8K-Ft-0T8"/>
+                            <constraint firstAttribute="trailing" secondItem="sdC-a3-jGR" secondAttribute="trailing" id="y8D-1I-biB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hpI-ki-CaM"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="emptyView" destination="rCR-zm-IJn" id="9sA-Ll-ymo"/>
+                        <outlet property="eventTableView" destination="Nmv-XS-boL" id="hkb-ZR-5zq"/>
+                        <outlet property="segmentControlView" destination="sdC-a3-jGR" id="70s-Hs-OmM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cIz-ED-bdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-514" y="-133"/>
+        </scene>
+        <!--My Events View Controller-->
+        <scene sceneID="xea-8K-WDs">
+            <objects>
+                <viewController storyboardIdentifier="MyEventsViewController" id="EAr-wL-qLh" customClass="MyEventsViewController" customModule="JoinMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vss-mu-EqZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="QnK-NQ-SGe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NnF-3K-fbT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrw-qD-0gh" customClass="JMSegmentedControlView" customModule="JoinMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                <color key="backgroundColor" red="0.01388947852" green="0.60620111229999996" blue="0.89712303879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="qmi-46-N56">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                    </constraint>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentSelectedColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentTextColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentSelectedTextColor">
+                                        <color key="value" red="0.015686274510000001" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Ef-pf-nTX">
+                                <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1Y-Xp-IL5">
+                                <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы не участвуете ни в одном мероприятии" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTn-GF-zzd">
+                                        <rect key="frame" x="99.5" y="297.5" width="176" height="28"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="CTn-GF-zzd" firstAttribute="centerY" secondItem="J1Y-Xp-IL5" secondAttribute="centerY" id="1Bh-pE-iLC"/>
+                                    <constraint firstItem="CTn-GF-zzd" firstAttribute="centerX" secondItem="J1Y-Xp-IL5" secondAttribute="centerX" id="6Us-1B-aMp"/>
+                                    <constraint firstItem="CTn-GF-zzd" firstAttribute="width" secondItem="J1Y-Xp-IL5" secondAttribute="width" multiplier="150:320" id="eMm-Ae-Jwc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xrw-qD-0gh" firstAttribute="top" secondItem="vss-mu-EqZ" secondAttribute="bottom" id="8da-id-tUZ"/>
+                            <constraint firstAttribute="trailing" secondItem="xrw-qD-0gh" secondAttribute="trailing" id="LOK-h0-ccs"/>
+                            <constraint firstAttribute="trailing" secondItem="3Ef-pf-nTX" secondAttribute="trailing" id="OGl-hJ-C9x"/>
+                            <constraint firstItem="J1Y-Xp-IL5" firstAttribute="top" secondItem="xrw-qD-0gh" secondAttribute="bottom" id="SU5-mb-545"/>
+                            <constraint firstAttribute="trailing" secondItem="J1Y-Xp-IL5" secondAttribute="trailing" id="gXW-K3-XLW"/>
+                            <constraint firstItem="QnK-NQ-SGe" firstAttribute="top" secondItem="3Ef-pf-nTX" secondAttribute="bottom" id="kHz-Ar-vTG"/>
+                            <constraint firstItem="3Ef-pf-nTX" firstAttribute="top" secondItem="xrw-qD-0gh" secondAttribute="bottom" id="lT5-ER-5Ma"/>
+                            <constraint firstItem="J1Y-Xp-IL5" firstAttribute="leading" secondItem="NnF-3K-fbT" secondAttribute="leading" id="nZe-pg-Rd4"/>
+                            <constraint firstItem="xrw-qD-0gh" firstAttribute="leading" secondItem="NnF-3K-fbT" secondAttribute="leading" id="pGf-eg-m1Q"/>
+                            <constraint firstItem="3Ef-pf-nTX" firstAttribute="leading" secondItem="NnF-3K-fbT" secondAttribute="leading" id="qRB-N3-n7h"/>
+                            <constraint firstItem="QnK-NQ-SGe" firstAttribute="top" secondItem="J1Y-Xp-IL5" secondAttribute="bottom" id="wfl-el-cep"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gjs-tI-hAy"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="emptyView" destination="J1Y-Xp-IL5" id="rcF-m8-OCY"/>
+                        <outlet property="eventTableView" destination="3Ef-pf-nTX" id="WUB-d0-qiC"/>
+                        <outlet property="segmentControlView" destination="xrw-qD-0gh" id="oEn-23-yKA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AND-8a-C6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1314" y="-133"/>
+        </scene>
+        <!--Event Participers View Controller-->
+        <scene sceneID="Cja-9Q-z4y">
+            <objects>
+                <viewController storyboardIdentifier="EventParticipersViewController" id="nUa-SS-8cf" customClass="EventParticipersViewController" customModule="JoinMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qw8-4f-OgG"/>
+                        <viewControllerLayoutGuide type="bottom" id="P3n-fb-hLR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w8y-RN-CKz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HaQ-2r-gpx" customClass="JMSegmentedControlView" customModule="JoinMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                <color key="backgroundColor" red="0.01388947852" green="0.60620111229999996" blue="0.89712303879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Keg-gX-5qo">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                                    </constraint>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentSelectedColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentTextColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="segmentSelectedTextColor">
+                                        <color key="value" red="0.015686274510000001" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pw1-rU-wNt">
+                                <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwR-PR-VSV">
+                                <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пока никто не присоединился" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqL-ul-x75">
+                                        <rect key="frame" x="99.5" y="304.5" width="176" height="14"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="DqL-ul-x75" firstAttribute="width" secondItem="mwR-PR-VSV" secondAttribute="width" multiplier="150:320" id="Wzc-aU-etB"/>
+                                    <constraint firstItem="DqL-ul-x75" firstAttribute="centerX" secondItem="mwR-PR-VSV" secondAttribute="centerX" id="i55-gE-70b"/>
+                                    <constraint firstItem="DqL-ul-x75" firstAttribute="centerY" secondItem="mwR-PR-VSV" secondAttribute="centerY" id="kag-t3-8EC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P3n-fb-hLR" firstAttribute="top" secondItem="mwR-PR-VSV" secondAttribute="bottom" id="5N4-VW-mwW"/>
+                            <constraint firstItem="HaQ-2r-gpx" firstAttribute="leading" secondItem="w8y-RN-CKz" secondAttribute="leading" id="7w8-fN-6dz"/>
+                            <constraint firstItem="P3n-fb-hLR" firstAttribute="top" secondItem="Pw1-rU-wNt" secondAttribute="bottom" id="9tb-bM-7sB"/>
+                            <constraint firstItem="mwR-PR-VSV" firstAttribute="top" secondItem="HaQ-2r-gpx" secondAttribute="bottom" id="Ogz-dw-ecY"/>
+                            <constraint firstItem="Pw1-rU-wNt" firstAttribute="top" secondItem="HaQ-2r-gpx" secondAttribute="bottom" id="PoB-c8-lZi"/>
+                            <constraint firstAttribute="trailing" secondItem="mwR-PR-VSV" secondAttribute="trailing" id="TKR-lT-y9W"/>
+                            <constraint firstAttribute="trailing" secondItem="Pw1-rU-wNt" secondAttribute="trailing" id="TtG-7a-7Bm"/>
+                            <constraint firstItem="HaQ-2r-gpx" firstAttribute="top" secondItem="Qw8-4f-OgG" secondAttribute="bottom" id="WQd-lr-aY9"/>
+                            <constraint firstAttribute="trailing" secondItem="HaQ-2r-gpx" secondAttribute="trailing" id="d1j-7O-A9C"/>
+                            <constraint firstItem="Pw1-rU-wNt" firstAttribute="leading" secondItem="w8y-RN-CKz" secondAttribute="leading" id="k9o-An-xum"/>
+                            <constraint firstItem="mwR-PR-VSV" firstAttribute="leading" secondItem="w8y-RN-CKz" secondAttribute="leading" id="laq-ih-TZ4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uI5-s2-Ibj"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="emptyView" destination="mwR-PR-VSV" id="fCT-mW-mSe"/>
+                        <outlet property="segmentControlView" destination="HaQ-2r-gpx" id="Z06-CB-NUG"/>
+                        <outlet property="tableV" destination="Pw1-rU-wNt" id="8RI-Me-qgr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="99L-S1-UkI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2003" y="-133"/>
+        </scene>
+        <!--Event Invite View Controller-->
+        <scene sceneID="TgR-Ya-psH">
+            <objects>
+                <viewController storyboardIdentifier="EventInviteViewController" id="AHW-q1-D2I" customClass="EventInviteViewController" customModule="JoinMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5sm-Ci-VWu"/>
+                        <viewControllerLayoutGuide type="bottom" id="UPP-e5-6U9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QW7-Gv-Tj4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cTy-sX-eLW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xw8-hv-48S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У вас пока нет подписчиков" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NX-Fe-PF7">
+                                        <rect key="frame" x="99.5" y="327" width="176" height="14"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7NX-Fe-PF7" firstAttribute="width" secondItem="Xw8-hv-48S" secondAttribute="width" multiplier="150:320" id="O02-OD-5CH"/>
+                                    <constraint firstItem="7NX-Fe-PF7" firstAttribute="centerX" secondItem="Xw8-hv-48S" secondAttribute="centerX" id="bEL-Rr-UUc"/>
+                                    <constraint firstItem="7NX-Fe-PF7" firstAttribute="centerY" secondItem="Xw8-hv-48S" secondAttribute="centerY" id="zsL-gh-p5A"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UPP-e5-6U9" firstAttribute="top" secondItem="Xw8-hv-48S" secondAttribute="bottom" id="ZpL-eb-pW2"/>
+                            <constraint firstItem="Xw8-hv-48S" firstAttribute="top" secondItem="5sm-Ci-VWu" secondAttribute="bottom" id="n7o-YB-Fuy"/>
+                            <constraint firstAttribute="trailing" secondItem="Xw8-hv-48S" secondAttribute="trailing" id="v6l-wi-vFk"/>
+                            <constraint firstItem="Xw8-hv-48S" firstAttribute="leading" secondItem="QW7-Gv-Tj4" secondAttribute="leading" id="wxA-38-n9a"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="C0j-6W-jn1"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="emptyView" destination="Xw8-hv-48S" id="AQv-F8-quI"/>
+                        <outlet property="followerListTableView" destination="cTy-sX-eLW" id="Ytp-GC-gCT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2IM-Bx-Pdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2738" y="-133"/>
+        </scene>
+        <!--Create Events View Controller-->
+        <scene sceneID="3TM-lR-Veu">
+            <objects>
+                <viewController storyboardIdentifier="CreateEventsViewController" id="MtH-Jn-fYT" customClass="CreateEventsViewController" customModule="JoinMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bWR-3w-zas"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ski-kC-H9d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dtC-Ms-2l7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88q-V5-0xJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DK3-Zw-5mg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="zUJ-ef-55G"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UB3-uL-ciH">
+                                        <rect key="frame" x="0.0" y="1" width="375" height="105"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsY-yz-MtH">
+                                                <rect key="frame" x="23.5" y="0.0" width="328" height="1"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="DOj-6j-Mhg"/>
+                                                </constraints>
+                                            </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Название мероприятия" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Otm-qL-3Zh" customClass="JMTextField" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="135.5" y="24.5" width="216" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Otm-qL-3Zh" secondAttribute="height" multiplier="6:1" id="ihw-2l-SAG">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="MtH-Jn-fYT" id="d5B-GN-MKf"/>
+                                                </connections>
+                                            </textField>
+                                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VId-wX-Z0u" customClass="JMImageView" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="15" width="82" height="82"/>
+                                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="VId-wX-Z0u" secondAttribute="height" multiplier="1:1" id="dmF-Ph-JWr"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbr-fc-RID">
+                                                <rect key="frame" x="23.5" y="15" width="82" height="82"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="12"/>
+                                                <state key="normal" title="+ ФОТО">
+                                                    <color key="titleColor" red="0.01176470588" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="eventsPhotoButton:" destination="MtH-Jn-fYT" eventType="touchUpInside" id="lnj-b0-UtS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Vbr-fc-RID" firstAttribute="height" secondItem="VId-wX-Z0u" secondAttribute="height" id="0CN-xg-qqR"/>
+                                            <constraint firstItem="Otm-qL-3Zh" firstAttribute="leading" secondItem="Vbr-fc-RID" secondAttribute="trailing" constant="30" id="5BD-Tl-fLl"/>
+                                            <constraint firstItem="VId-wX-Z0u" firstAttribute="top" secondItem="LsY-yz-MtH" secondAttribute="bottom" constant="14" id="E9J-8n-BVc">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                            </constraint>
+                                            <constraint firstItem="LsY-yz-MtH" firstAttribute="centerX" secondItem="UB3-uL-ciH" secondAttribute="centerX" id="EtX-4i-kj9"/>
+                                            <constraint firstItem="VId-wX-Z0u" firstAttribute="width" secondItem="UB3-uL-ciH" secondAttribute="width" multiplier="70:320" id="IXZ-UH-JC2">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="-30"/>
+                                            </constraint>
+                                            <constraint firstItem="VId-wX-Z0u" firstAttribute="leading" secondItem="LsY-yz-MtH" secondAttribute="leading" id="N9J-uW-fQE"/>
+                                            <constraint firstItem="Vbr-fc-RID" firstAttribute="centerX" secondItem="VId-wX-Z0u" secondAttribute="centerX" id="SoB-ZP-SBe"/>
+                                            <constraint firstItem="Otm-qL-3Zh" firstAttribute="bottom" secondItem="Vbr-fc-RID" secondAttribute="baseline" id="Whz-Jy-wwD"/>
+                                            <constraint firstAttribute="bottom" secondItem="VId-wX-Z0u" secondAttribute="bottom" constant="8" id="XIN-gy-39A">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                            <constraint firstItem="Otm-qL-3Zh" firstAttribute="trailing" secondItem="LsY-yz-MtH" secondAttribute="trailing" id="ccf-RG-Jvb"/>
+                                            <constraint firstItem="LsY-yz-MtH" firstAttribute="width" secondItem="UB3-uL-ciH" secondAttribute="width" multiplier="280:320" id="hRv-cn-7Al"/>
+                                            <constraint firstItem="LsY-yz-MtH" firstAttribute="top" secondItem="UB3-uL-ciH" secondAttribute="top" id="lwr-LB-m4R"/>
+                                            <constraint firstItem="Vbr-fc-RID" firstAttribute="width" secondItem="VId-wX-Z0u" secondAttribute="width" id="pUJ-Re-9qk"/>
+                                            <constraint firstItem="Vbr-fc-RID" firstAttribute="centerY" secondItem="VId-wX-Z0u" secondAttribute="centerY" id="q2h-Tc-aH9"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="peP-u6-mqH">
+                                        <rect key="frame" x="0.0" y="106" width="375" height="10"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="CMn-lD-FbE"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOZ-y5-Wbf">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="60"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="opi-Tw-neZ" customClass="JMSegmentedControl" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="47.5" y="15" width="281" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="1Cy-xP-exB">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Открытое"/>
+                                                    <segment title="Приватное"/>
+                                                </segments>
+                                                <color key="tintColor" red="0.01176470588" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </segmentedControl>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBc-hZ-Dwb">
+                                                <rect key="frame" x="343" y="10" width="22" height="22"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <segue destination="ZqN-Lm-6Dx" kind="show" id="lgD-Mg-zdP">
+                                                        <nil key="action"/>
+                                                    </segue>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="opi-Tw-neZ" firstAttribute="centerX" secondItem="vOZ-y5-Wbf" secondAttribute="centerX" id="Rsu-SP-pWD"/>
+                                            <constraint firstItem="EBc-hZ-Dwb" firstAttribute="top" secondItem="vOZ-y5-Wbf" secondAttribute="top" constant="10" id="ci6-W7-kY0">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                            <constraint firstItem="opi-Tw-neZ" firstAttribute="top" secondItem="vOZ-y5-Wbf" secondAttribute="top" constant="15" id="o4T-5b-5JT">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="25"/>
+                                            </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="opi-Tw-neZ" secondAttribute="bottom" constant="15" id="o7j-Da-wMn">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="25"/>
+                                            </constraint>
+                                            <constraint firstItem="opi-Tw-neZ" firstAttribute="width" secondItem="vOZ-y5-Wbf" secondAttribute="width" multiplier="12:16" id="uGH-ur-YIM"/>
+                                            <constraint firstAttribute="trailing" secondItem="EBc-hZ-Dwb" secondAttribute="trailing" constant="10" id="yah-g8-sBv">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                        </constraints>
+                                    </view>
+                                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUn-ZM-Lh0">
+                                        <rect key="frame" x="0.0" y="176" width="375" height="87.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-fW-0bd" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="2" width="328" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="TBB-fW-0bd" secondAttribute="height" multiplier="28:3" id="Nxl-XO-XBR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Дата проведения:  "/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                        <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value="Не выбрано"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="eventDateButtonClick:" destination="MtH-Jn-fYT" eventType="touchUpInside" id="PZ7-Cv-iAP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu0-gl-vgX" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="42" width="328" height="35.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="gu0-gl-vgX" secondAttribute="height" multiplier="28:3" id="fDh-7M-z9e"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Время проведения:"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value="Не выбрано"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                        <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="eventDateButtonClick:" destination="MtH-Jn-fYT" eventType="touchUpInside" id="y5J-EI-hnB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="TBB-fW-0bd" firstAttribute="width" secondItem="mUn-ZM-Lh0" secondAttribute="width" multiplier="280:320" id="AVK-Zt-v7o"/>
+                                            <constraint firstItem="TBB-fW-0bd" firstAttribute="top" secondItem="mUn-ZM-Lh0" secondAttribute="top" constant="2" id="Jhv-9Y-QB0"/>
+                                            <constraint firstItem="gu0-gl-vgX" firstAttribute="width" secondItem="TBB-fW-0bd" secondAttribute="width" id="NoA-ND-yJl"/>
+                                            <constraint firstItem="TBB-fW-0bd" firstAttribute="centerX" secondItem="mUn-ZM-Lh0" secondAttribute="centerX" id="TGz-dI-AT5"/>
+                                            <constraint firstAttribute="bottom" secondItem="gu0-gl-vgX" secondAttribute="bottom" constant="10" id="Z6D-Sr-Pn6">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                            <constraint firstItem="gu0-gl-vgX" firstAttribute="centerX" secondItem="TBB-fW-0bd" secondAttribute="centerX" id="oHe-Yn-eK9"/>
+                                            <constraint firstItem="gu0-gl-vgX" firstAttribute="top" secondItem="TBB-fW-0bd" secondAttribute="bottom" constant="5" id="vrI-ip-MAK"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pze-ti-mmj">
+                                        <rect key="frame" x="0.0" y="264.5" width="375" height="85"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqY-BD-eTI" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="45" width="328" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ZqY-BD-eTI" secondAttribute="height" multiplier="28:3" id="r76-VY-4OE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Город: "/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                        <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value=" "/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="selectPlaceButtonClicked:" destination="MtH-Jn-fYT" eventType="touchUpInside" id="xyB-9B-8vX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9q-oG-cpK" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="5" width="328" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="S9q-oG-cpK" secondAttribute="height" multiplier="28:3" id="zZa-ml-re5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Страна:"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                        <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value=" "/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="selectPlaceButtonClicked:" destination="MtH-Jn-fYT" eventType="touchUpInside" id="vq0-eE-gUZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="S9q-oG-cpK" firstAttribute="top" secondItem="Pze-ti-mmj" secondAttribute="top" constant="5" id="BEa-B1-oDQ"/>
+                                            <constraint firstItem="ZqY-BD-eTI" firstAttribute="centerX" secondItem="S9q-oG-cpK" secondAttribute="centerX" id="CCZ-FI-d3l"/>
+                                            <constraint firstItem="ZqY-BD-eTI" firstAttribute="top" secondItem="S9q-oG-cpK" secondAttribute="bottom" constant="5" id="NSS-Km-45u"/>
+                                            <constraint firstItem="S9q-oG-cpK" firstAttribute="width" secondItem="Pze-ti-mmj" secondAttribute="width" multiplier="280:320" id="dpv-Zd-vcG"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZqY-BD-eTI" secondAttribute="bottom" constant="5" id="ef1-Qx-a7n">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="25"/>
+                                            </constraint>
+                                            <constraint firstItem="ZqY-BD-eTI" firstAttribute="width" secondItem="S9q-oG-cpK" secondAttribute="width" id="pkE-qw-a1d"/>
+                                            <constraint firstItem="S9q-oG-cpK" firstAttribute="centerX" secondItem="Pze-ti-mmj" secondAttribute="centerX" id="tTH-wn-VMO"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKQ-vu-e8b" customClass="JMCommonButton" customModule="JoinMe" customModuleProvider="target">
+                                        <rect key="frame" x="28" y="493.5" width="319" height="47"/>
+                                        <color key="backgroundColor" red="0.01176470588" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="LKQ-vu-e8b" secondAttribute="height" multiplier="272:40" id="zal-ie-bFG">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="15"/>
+                                        <state key="normal" title="Создать событие">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="25"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="createEventButton:" destination="MtH-Jn-fYT" eventType="touchUpInside" id="sr8-EF-b6H"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0n-LZ-Zxi">
+                                        <rect key="frame" x="0.0" y="406.5" width="375" height="10"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="Upn-9l-NvV"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Место мероприятия" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-sb-0KX" customClass="JMTextField" customModule="JoinMe" customModuleProvider="target">
+                                        <rect key="frame" x="23.5" y="349.5" width="328" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="iiS-sb-0KX" secondAttribute="height" multiplier="28:4" id="QAJ-It-3Rp">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                            </constraint>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                        </variation>
+                                    </textField>
+                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a0h-Op-gzg" customClass="JMTextView" customModule="JoinMe" customModuleProvider="target">
+                                        <rect key="frame" x="23.5" y="426.5" width="328" height="47"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.0" green="0.57254901960000004" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="a0h-Op-gzg" secondAttribute="height" multiplier="28:4" id="43g-5h-JXK">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Описание мероприятия"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                        </variation>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mUn-ZM-Lh0" firstAttribute="trailing" secondItem="vOZ-y5-Wbf" secondAttribute="trailing" id="0Y4-8y-MMV"/>
+                                    <constraint firstItem="X0n-LZ-Zxi" firstAttribute="top" secondItem="iiS-sb-0KX" secondAttribute="bottom" constant="10" id="2Ab-s9-C1S"/>
+                                    <constraint firstItem="peP-u6-mqH" firstAttribute="leading" secondItem="UB3-uL-ciH" secondAttribute="leading" id="2E3-Tb-p32"/>
+                                    <constraint firstItem="DK3-Zw-5mg" firstAttribute="top" secondItem="88q-V5-0xJ" secondAttribute="top" id="51w-6n-212"/>
+                                    <constraint firstItem="DK3-Zw-5mg" firstAttribute="leading" secondItem="88q-V5-0xJ" secondAttribute="leading" id="7uh-IX-eN8"/>
+                                    <constraint firstItem="iiS-sb-0KX" firstAttribute="centerX" secondItem="88q-V5-0xJ" secondAttribute="centerX" id="Eld-6p-qnh"/>
+                                    <constraint firstItem="Pze-ti-mmj" firstAttribute="trailing" secondItem="mUn-ZM-Lh0" secondAttribute="trailing" id="HV9-Cp-nuF"/>
+                                    <constraint firstItem="X0n-LZ-Zxi" firstAttribute="trailing" secondItem="Pze-ti-mmj" secondAttribute="trailing" id="JJ5-ez-toi"/>
+                                    <constraint firstItem="UB3-uL-ciH" firstAttribute="leading" secondItem="DK3-Zw-5mg" secondAttribute="leading" id="PLm-F3-QtJ"/>
+                                    <constraint firstItem="peP-u6-mqH" firstAttribute="top" secondItem="UB3-uL-ciH" secondAttribute="bottom" id="SGa-op-ire"/>
+                                    <constraint firstItem="iiS-sb-0KX" firstAttribute="top" secondItem="Pze-ti-mmj" secondAttribute="bottom" id="XGK-4k-8AK"/>
+                                    <constraint firstItem="a0h-Op-gzg" firstAttribute="centerX" secondItem="88q-V5-0xJ" secondAttribute="centerX" id="ZDj-oh-7gq"/>
+                                    <constraint firstItem="mUn-ZM-Lh0" firstAttribute="leading" secondItem="vOZ-y5-Wbf" secondAttribute="leading" id="aNt-eH-R7d"/>
+                                    <constraint firstItem="LKQ-vu-e8b" firstAttribute="top" secondItem="a0h-Op-gzg" secondAttribute="bottom" constant="20" id="ayx-m8-PMP">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                    </constraint>
+                                    <constraint firstItem="vOZ-y5-Wbf" firstAttribute="leading" secondItem="peP-u6-mqH" secondAttribute="leading" id="gZQ-tB-dII"/>
+                                    <constraint firstItem="iiS-sb-0KX" firstAttribute="width" secondItem="88q-V5-0xJ" secondAttribute="width" multiplier="28:32" id="gft-WB-7r0"/>
+                                    <constraint firstAttribute="bottom" secondItem="LKQ-vu-e8b" secondAttribute="bottom" constant="10" id="i0q-pC-ERy"/>
+                                    <constraint firstItem="LKQ-vu-e8b" firstAttribute="width" secondItem="88q-V5-0xJ" secondAttribute="width" multiplier="272:320" id="k83-Gs-giK"/>
+                                    <constraint firstItem="a0h-Op-gzg" firstAttribute="top" secondItem="X0n-LZ-Zxi" secondAttribute="bottom" constant="10" id="lp4-IF-Dv8"/>
+                                    <constraint firstItem="DK3-Zw-5mg" firstAttribute="centerX" secondItem="88q-V5-0xJ" secondAttribute="centerX" id="o0j-UU-qDU"/>
+                                    <constraint firstItem="vOZ-y5-Wbf" firstAttribute="trailing" secondItem="peP-u6-mqH" secondAttribute="trailing" id="se7-LX-jXI"/>
+                                    <constraint firstItem="Pze-ti-mmj" firstAttribute="top" secondItem="mUn-ZM-Lh0" secondAttribute="bottom" constant="1" id="tKG-ae-uHh"/>
+                                    <constraint firstItem="UB3-uL-ciH" firstAttribute="top" secondItem="DK3-Zw-5mg" secondAttribute="bottom" id="v7m-i0-82O"/>
+                                    <constraint firstAttribute="trailing" secondItem="DK3-Zw-5mg" secondAttribute="trailing" id="vcr-MN-KYB"/>
+                                    <constraint firstItem="LKQ-vu-e8b" firstAttribute="centerX" secondItem="88q-V5-0xJ" secondAttribute="centerX" id="wFg-Gl-fFb"/>
+                                    <constraint firstItem="Pze-ti-mmj" firstAttribute="leading" secondItem="mUn-ZM-Lh0" secondAttribute="leading" id="xAC-ct-cwB"/>
+                                    <constraint firstItem="X0n-LZ-Zxi" firstAttribute="leading" secondItem="Pze-ti-mmj" secondAttribute="leading" id="xWd-tG-rPe"/>
+                                    <constraint firstItem="vOZ-y5-Wbf" firstAttribute="top" secondItem="peP-u6-mqH" secondAttribute="bottom" id="xpe-DS-ve7"/>
+                                    <constraint firstItem="a0h-Op-gzg" firstAttribute="width" secondItem="88q-V5-0xJ" secondAttribute="width" multiplier="28:32" id="y6T-Cg-KwI"/>
+                                    <constraint firstItem="mUn-ZM-Lh0" firstAttribute="top" secondItem="vOZ-y5-Wbf" secondAttribute="bottom" id="z6W-jm-CXA"/>
+                                    <constraint firstItem="UB3-uL-ciH" firstAttribute="trailing" secondItem="DK3-Zw-5mg" secondAttribute="trailing" id="zBm-n7-HDT"/>
+                                    <constraint firstItem="X0n-LZ-Zxi" firstAttribute="leading" secondItem="88q-V5-0xJ" secondAttribute="leading" id="zhg-pa-z1r"/>
+                                    <constraint firstItem="peP-u6-mqH" firstAttribute="trailing" secondItem="UB3-uL-ciH" secondAttribute="trailing" id="zhr-TX-K8F"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="88q-V5-0xJ" firstAttribute="top" secondItem="bWR-3w-zas" secondAttribute="bottom" id="Xe5-l8-L1e"/>
+                            <constraint firstItem="Ski-kC-H9d" firstAttribute="top" secondItem="88q-V5-0xJ" secondAttribute="bottom" id="ghK-rY-epi"/>
+                            <constraint firstAttribute="trailing" secondItem="88q-V5-0xJ" secondAttribute="trailing" id="jsr-pW-lmp"/>
+                            <constraint firstItem="88q-V5-0xJ" firstAttribute="leading" secondItem="dtC-Ms-2l7" secondAttribute="leading" id="n3m-ov-YE8"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="addPhtotoButton" destination="Vbr-fc-RID" id="rbm-2u-rBg"/>
+                        <outlet property="cityButton" destination="ZqY-BD-eTI" id="bsv-Rm-XPN"/>
+                        <outlet property="countryButton" destination="S9q-oG-cpK" id="TKB-4n-LvX"/>
+                        <outlet property="descriptionTextView" destination="a0h-Op-gzg" id="gwq-qk-GdN"/>
+                        <outlet property="eventNameTextField" destination="Otm-qL-3Zh" id="C6E-GT-vaP"/>
+                        <outlet property="eventTypeSegment" destination="opi-Tw-neZ" id="XIi-ma-17C"/>
+                        <outlet property="eventsPhotoView" destination="VId-wX-Z0u" id="mZB-D0-ijk"/>
+                        <outlet property="placeTextField" destination="iiS-sb-0KX" id="D5O-o8-hWd"/>
+                        <outlet property="scrollView" destination="88q-V5-0xJ" id="BXw-ZD-bLG"/>
+                        <outlet property="selectEventButton" destination="TBB-fW-0bd" id="LgE-In-OY1"/>
+                        <outlet property="selectEventTimeButton" destination="gu0-gl-vgX" id="e1q-Hk-GZn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4V7-VE-l3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="975" y="547"/>
+        </scene>
+        <!--инфо-->
+        <scene sceneID="pPi-EH-IHt">
+            <objects>
+                <viewController title="инфо" id="ZqN-Lm-6Dx" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DeV-qi-8mh"/>
+                        <viewControllerLayoutGuide type="bottom" id="bQR-5e-SW9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3OY-M8-Gj3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ioi-n0-EE7">
+                                <rect key="frame" x="23.5" y="30" width="328" height="607"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">- Открытое: Мероприятие, которое видят все пользователи приложения и могут присоединиться к нему. Данные мероприятия размещаются в ленте событий.
+- Приватное: Мероприятие, которое видят только те, кого вы пригласили. Таким образом, вы можете использовать приложение для проведения деловых встреч, оповещения друзей о вашем закрытом мероприятии, пригласить на свидания и пр. Создайте встречу, а JoinMe напомнит вам о ней и сделает все встречи более удобными и интересными. Мероприятия появляются в разделе «Приватные события» и видите их только вы и приглашенные пользователи.</string>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="24"/>
+                                </variation>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ioi-n0-EE7" firstAttribute="centerX" secondItem="3OY-M8-Gj3" secondAttribute="centerX" id="W3f-cO-WGX"/>
+                            <constraint firstItem="Ioi-n0-EE7" firstAttribute="width" secondItem="3OY-M8-Gj3" secondAttribute="width" multiplier="28:32" id="aKx-CN-jgW"/>
+                            <constraint firstItem="bQR-5e-SW9" firstAttribute="top" secondItem="Ioi-n0-EE7" secondAttribute="bottom" constant="30" id="c0y-yD-vm6"/>
+                            <constraint firstItem="Ioi-n0-EE7" firstAttribute="top" secondItem="DeV-qi-8mh" secondAttribute="bottom" constant="30" id="tNR-zR-R6g">
+                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
+                            </constraint>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aF5-AR-AxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789" y="584"/>
+        </scene>
+        <!--Edit Event View Controller-->
+        <scene sceneID="SOC-eg-4jE">
+            <objects>
+                <viewController storyboardIdentifier="EditEventViewController" id="FI4-6Y-Qo3" customClass="EditEventViewController" customModule="JoinMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FSY-pL-hcI"/>
+                        <viewControllerLayoutGuide type="bottom" id="yBG-ia-HBl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A3y-bz-6rT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0e0-hs-ObF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezG-Af-bFd">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="cNM-Yo-QSm"/>
+                                        </constraints>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i57-f3-QIg">
+                                        <rect key="frame" x="0.0" y="1" width="375" height="105"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgI-VP-eCO">
+                                                <rect key="frame" x="23.5" y="0.0" width="328" height="1"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="igG-vy-aYu"/>
+                                                </constraints>
+                                            </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Название мероприятия" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rbX-mP-jB9" customClass="JMTextField" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="135.5" y="24.5" width="216" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="rbX-mP-jB9" secondAttribute="height" multiplier="6:1" id="SUk-bG-mRM">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="FI4-6Y-Qo3" id="Uqv-tb-hVx"/>
+                                                </connections>
+                                            </textField>
+                                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2V-OO-j2i" customClass="JMImageView" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="15" width="82" height="82"/>
+                                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="T2V-OO-j2i" secondAttribute="height" multiplier="1:1" id="vfY-BQ-4h0"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnf-5i-bfk">
+                                                <rect key="frame" x="23.5" y="15" width="82" height="82"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="12"/>
+                                                <state key="normal" title="+ ФОТО">
+                                                    <color key="titleColor" red="0.01176470588" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="eventImage:" destination="FI4-6Y-Qo3" eventType="touchUpInside" id="hfM-Ty-Y7Z"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="cgI-VP-eCO" firstAttribute="width" secondItem="i57-f3-QIg" secondAttribute="width" multiplier="280:320" id="53x-hU-Uyw"/>
+                                            <constraint firstItem="T2V-OO-j2i" firstAttribute="top" secondItem="cgI-VP-eCO" secondAttribute="bottom" constant="14" id="6yR-0P-6Ud">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                            </constraint>
+                                            <constraint firstItem="rbX-mP-jB9" firstAttribute="bottom" secondItem="gnf-5i-bfk" secondAttribute="baseline" id="7Vt-66-yMO"/>
+                                            <constraint firstItem="cgI-VP-eCO" firstAttribute="centerX" secondItem="i57-f3-QIg" secondAttribute="centerX" id="GD3-WA-pCC"/>
+                                            <constraint firstItem="gnf-5i-bfk" firstAttribute="width" secondItem="T2V-OO-j2i" secondAttribute="width" id="UTb-E6-JGc"/>
+                                            <constraint firstItem="gnf-5i-bfk" firstAttribute="height" secondItem="T2V-OO-j2i" secondAttribute="height" id="bRN-ii-kBB"/>
+                                            <constraint firstItem="gnf-5i-bfk" firstAttribute="centerX" secondItem="T2V-OO-j2i" secondAttribute="centerX" id="fTQ-YV-2dP"/>
+                                            <constraint firstItem="gnf-5i-bfk" firstAttribute="centerY" secondItem="T2V-OO-j2i" secondAttribute="centerY" id="fZ7-lq-Cp2"/>
+                                            <constraint firstItem="rbX-mP-jB9" firstAttribute="leading" secondItem="gnf-5i-bfk" secondAttribute="trailing" constant="30" id="iTB-Sy-eib"/>
+                                            <constraint firstItem="cgI-VP-eCO" firstAttribute="top" secondItem="i57-f3-QIg" secondAttribute="top" id="kMv-gq-SOb"/>
+                                            <constraint firstItem="T2V-OO-j2i" firstAttribute="leading" secondItem="cgI-VP-eCO" secondAttribute="leading" id="mwI-Tn-r5O"/>
+                                            <constraint firstAttribute="bottom" secondItem="T2V-OO-j2i" secondAttribute="bottom" constant="8" id="u6r-jZ-Nmb">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                            <constraint firstItem="rbX-mP-jB9" firstAttribute="trailing" secondItem="cgI-VP-eCO" secondAttribute="trailing" id="ykK-Gl-0vh"/>
+                                            <constraint firstItem="T2V-OO-j2i" firstAttribute="width" secondItem="i57-f3-QIg" secondAttribute="width" multiplier="70:320" id="zb6-Vt-UOR">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="-30"/>
+                                            </constraint>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4g-2O-1KH">
+                                        <rect key="frame" x="0.0" y="106" width="375" height="10"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="RUi-zw-s3T"/>
+                                        </constraints>
+                                    </view>
+                                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpX-R8-QdA">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="87.5"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-c8-9GF" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="2" width="328" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Wce-c8-9GF" secondAttribute="height" multiplier="28:3" id="Ogi-zO-QIh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Дата проведения:  "/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                        <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value="Не выбрано"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="editDatePicker:" destination="FI4-6Y-Qo3" eventType="touchUpInside" id="mr6-Pe-Cb9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLD-WP-BxU" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="42" width="328" height="35.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="OLD-WP-BxU" secondAttribute="height" multiplier="28:3" id="qUb-sM-upB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Время проведения:"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                        <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value="Не выбрано"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="editDatePicker:" destination="FI4-6Y-Qo3" eventType="touchUpInside" id="Lt7-VL-ILp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Wce-c8-9GF" firstAttribute="top" secondItem="tpX-R8-QdA" secondAttribute="top" constant="2" id="0p0-ka-9V9"/>
+                                            <constraint firstAttribute="bottom" secondItem="OLD-WP-BxU" secondAttribute="bottom" constant="10" id="3hI-hC-iMm">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                            <constraint firstItem="OLD-WP-BxU" firstAttribute="width" secondItem="Wce-c8-9GF" secondAttribute="width" id="92f-Wn-dy5"/>
+                                            <constraint firstItem="Wce-c8-9GF" firstAttribute="width" secondItem="tpX-R8-QdA" secondAttribute="width" multiplier="280:320" id="A6f-z4-De9"/>
+                                            <constraint firstItem="Wce-c8-9GF" firstAttribute="centerX" secondItem="tpX-R8-QdA" secondAttribute="centerX" id="D1q-p9-90h"/>
+                                            <constraint firstItem="OLD-WP-BxU" firstAttribute="top" secondItem="Wce-c8-9GF" secondAttribute="bottom" constant="5" id="VNx-Ed-CeY"/>
+                                            <constraint firstItem="OLD-WP-BxU" firstAttribute="centerX" secondItem="Wce-c8-9GF" secondAttribute="centerX" id="djP-Yj-vtp"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQv-cU-Mg7">
+                                        <rect key="frame" x="0.0" y="204.5" width="375" height="85"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5U-kI-b7c" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="45" width="328" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="w5U-kI-b7c" secondAttribute="height" multiplier="28:3" id="h3G-Eo-a51"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Город: "/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                        <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value=" "/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="selectedPlaceButtonClicked:" destination="FI4-6Y-Qo3" eventType="touchUpInside" id="Qan-Gr-YRV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bc-ap-Tqd" customClass="JMInputButton" customModule="JoinMe" customModuleProvider="target">
+                                                <rect key="frame" x="23.5" y="5" width="328" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="9bc-ap-Tqd" secondAttribute="height" multiplier="28:3" id="RlM-8B-ZBy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="accessory" value="next "/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Страна:"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderTextColor">
+                                                        <color key="value" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="secondaryPlaceHolder" value=" "/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="selectedPlaceButtonClicked:" destination="FI4-6Y-Qo3" eventType="touchUpInside" id="bBN-C5-QZj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="w5U-kI-b7c" firstAttribute="width" secondItem="9bc-ap-Tqd" secondAttribute="width" id="3qS-jY-cHs"/>
+                                            <constraint firstItem="w5U-kI-b7c" firstAttribute="top" secondItem="9bc-ap-Tqd" secondAttribute="bottom" constant="5" id="XDm-9R-s0i"/>
+                                            <constraint firstAttribute="bottom" secondItem="w5U-kI-b7c" secondAttribute="bottom" constant="5" id="aqa-4W-nR0">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="25"/>
+                                            </constraint>
+                                            <constraint firstItem="9bc-ap-Tqd" firstAttribute="width" secondItem="NQv-cU-Mg7" secondAttribute="width" multiplier="280:320" id="ent-lv-TMW"/>
+                                            <constraint firstItem="w5U-kI-b7c" firstAttribute="centerX" secondItem="9bc-ap-Tqd" secondAttribute="centerX" id="fhQ-71-Npj"/>
+                                            <constraint firstItem="9bc-ap-Tqd" firstAttribute="centerX" secondItem="NQv-cU-Mg7" secondAttribute="centerX" id="rfG-ew-131"/>
+                                            <constraint firstItem="9bc-ap-Tqd" firstAttribute="top" secondItem="NQv-cU-Mg7" secondAttribute="top" constant="5" id="sfk-uI-cGa"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xo-7a-P0y" customClass="JMCommonButton" customModule="JoinMe" customModuleProvider="target">
+                                        <rect key="frame" x="28" y="433.5" width="319" height="47"/>
+                                        <color key="backgroundColor" red="0.01176470588" green="0.60784313729999995" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="7Xo-7a-P0y" secondAttribute="height" multiplier="272:40" id="qdw-l1-hBj">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="15"/>
+                                        <state key="normal" title="Редактировать событие">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="25"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="updateButtonClick:" destination="FI4-6Y-Qo3" eventType="touchUpInside" id="97V-Wd-P63"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ScW-0J-47P">
+                                        <rect key="frame" x="0.0" y="346.5" width="375" height="10"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="jPF-A0-SG7"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Место мероприятия" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nfm-l7-4cV" customClass="JMTextField" customModule="JoinMe" customModuleProvider="target">
+                                        <rect key="frame" x="23.5" y="289.5" width="328" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Nfm-l7-4cV" secondAttribute="height" multiplier="28:4" id="ouj-54-Gqf">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                            </constraint>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                        </variation>
+                                    </textField>
+                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7J5-Ft-z5m" customClass="JMTextView" customModule="JoinMe" customModuleProvider="target">
+                                        <rect key="frame" x="23.5" y="366.5" width="328" height="47"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.0" green="0.57254901960000004" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="7J5-Ft-z5m" secondAttribute="height" multiplier="28:4" id="3ye-hY-g8H">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Описание мероприятия"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="22"/>
+                                        </variation>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPE-bC-YkJ" customClass="JMCommonButton" customModule="JoinMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="510.5" width="375" height="46.5"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="15"/>
+                                        <state key="normal" title="Отменить мероприятия">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="25"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="eventCancelButtonClick:" destination="FI4-6Y-Qo3" eventType="touchUpInside" id="DIC-qY-gZc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tpX-R8-QdA" firstAttribute="width" secondItem="d4g-2O-1KH" secondAttribute="width" id="0iC-Ys-1eO"/>
+                                    <constraint firstItem="ezG-Af-bFd" firstAttribute="centerX" secondItem="0e0-hs-ObF" secondAttribute="centerX" id="3h7-pW-SJf"/>
+                                    <constraint firstItem="i57-f3-QIg" firstAttribute="trailing" secondItem="ezG-Af-bFd" secondAttribute="trailing" id="3tB-du-LQG"/>
+                                    <constraint firstItem="Nfm-l7-4cV" firstAttribute="top" secondItem="NQv-cU-Mg7" secondAttribute="bottom" id="4YS-wq-HbN"/>
+                                    <constraint firstItem="NQv-cU-Mg7" firstAttribute="trailing" secondItem="tpX-R8-QdA" secondAttribute="trailing" id="5a7-9f-6Fl"/>
+                                    <constraint firstItem="7J5-Ft-z5m" firstAttribute="centerX" secondItem="0e0-hs-ObF" secondAttribute="centerX" id="AEh-oR-VKH"/>
+                                    <constraint firstItem="7Xo-7a-P0y" firstAttribute="width" secondItem="0e0-hs-ObF" secondAttribute="width" multiplier="272:320" id="BD0-Zw-jy2"/>
+                                    <constraint firstItem="ScW-0J-47P" firstAttribute="trailing" secondItem="NQv-cU-Mg7" secondAttribute="trailing" id="Ce5-H5-pS7"/>
+                                    <constraint firstItem="NQv-cU-Mg7" firstAttribute="top" secondItem="tpX-R8-QdA" secondAttribute="bottom" constant="1" id="EED-k6-mr6"/>
+                                    <constraint firstItem="MPE-bC-YkJ" firstAttribute="centerX" secondItem="0e0-hs-ObF" secondAttribute="centerX" id="EXu-kX-8B6"/>
+                                    <constraint firstItem="Nfm-l7-4cV" firstAttribute="centerX" secondItem="0e0-hs-ObF" secondAttribute="centerX" id="El2-gN-Eqc"/>
+                                    <constraint firstItem="NQv-cU-Mg7" firstAttribute="leading" secondItem="tpX-R8-QdA" secondAttribute="leading" id="Fxr-Qj-WLk"/>
+                                    <constraint firstItem="ezG-Af-bFd" firstAttribute="top" secondItem="0e0-hs-ObF" secondAttribute="top" id="GLd-mm-ZY2"/>
+                                    <constraint firstItem="tpX-R8-QdA" firstAttribute="top" secondItem="d4g-2O-1KH" secondAttribute="bottom" id="IWr-bl-Jbc"/>
+                                    <constraint firstItem="d4g-2O-1KH" firstAttribute="top" secondItem="i57-f3-QIg" secondAttribute="bottom" id="JJb-S8-lbn"/>
+                                    <constraint firstItem="ScW-0J-47P" firstAttribute="top" secondItem="Nfm-l7-4cV" secondAttribute="bottom" constant="10" id="JM3-yj-jks"/>
+                                    <constraint firstAttribute="trailing" secondItem="ezG-Af-bFd" secondAttribute="trailing" id="NMP-wH-NAp"/>
+                                    <constraint firstItem="7Xo-7a-P0y" firstAttribute="top" secondItem="7J5-Ft-z5m" secondAttribute="bottom" constant="20" id="NcY-g8-kC7">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                    </constraint>
+                                    <constraint firstItem="d4g-2O-1KH" firstAttribute="trailing" secondItem="i57-f3-QIg" secondAttribute="trailing" id="Qfs-XY-gZ2"/>
+                                    <constraint firstItem="ezG-Af-bFd" firstAttribute="leading" secondItem="0e0-hs-ObF" secondAttribute="leading" id="RCa-Fd-cih"/>
+                                    <constraint firstItem="d4g-2O-1KH" firstAttribute="leading" secondItem="i57-f3-QIg" secondAttribute="leading" id="Rik-kf-y6g"/>
+                                    <constraint firstItem="7J5-Ft-z5m" firstAttribute="top" secondItem="ScW-0J-47P" secondAttribute="bottom" constant="10" id="RyY-Hc-dfg"/>
+                                    <constraint firstItem="MPE-bC-YkJ" firstAttribute="width" secondItem="0e0-hs-ObF" secondAttribute="width" id="SBr-NL-29l"/>
+                                    <constraint firstItem="7Xo-7a-P0y" firstAttribute="centerX" secondItem="0e0-hs-ObF" secondAttribute="centerX" id="ToW-cH-v12"/>
+                                    <constraint firstItem="MPE-bC-YkJ" firstAttribute="height" secondItem="7Xo-7a-P0y" secondAttribute="height" id="Txs-mN-OZO"/>
+                                    <constraint firstItem="ScW-0J-47P" firstAttribute="leading" secondItem="0e0-hs-ObF" secondAttribute="leading" id="VPt-pt-lPe"/>
+                                    <constraint firstAttribute="bottom" secondItem="MPE-bC-YkJ" secondAttribute="bottom" constant="10" id="em4-ab-B52"/>
+                                    <constraint firstItem="i57-f3-QIg" firstAttribute="leading" secondItem="ezG-Af-bFd" secondAttribute="leading" id="fBN-Y4-5dT"/>
+                                    <constraint firstItem="i57-f3-QIg" firstAttribute="top" secondItem="ezG-Af-bFd" secondAttribute="bottom" id="lgD-Bc-Btc"/>
+                                    <constraint firstItem="Nfm-l7-4cV" firstAttribute="width" secondItem="0e0-hs-ObF" secondAttribute="width" multiplier="28:32" id="sx3-Q7-REW"/>
+                                    <constraint firstItem="7J5-Ft-z5m" firstAttribute="width" secondItem="0e0-hs-ObF" secondAttribute="width" multiplier="28:32" id="ulF-fm-8ka"/>
+                                    <constraint firstItem="MPE-bC-YkJ" firstAttribute="top" secondItem="7Xo-7a-P0y" secondAttribute="bottom" constant="30" id="y3w-SK-d08"/>
+                                    <constraint firstItem="ScW-0J-47P" firstAttribute="leading" secondItem="NQv-cU-Mg7" secondAttribute="leading" id="z1r-sB-0ri"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0e0-hs-ObF" secondAttribute="trailing" id="2vo-r1-fe6"/>
+                            <constraint firstItem="0e0-hs-ObF" firstAttribute="leading" secondItem="A3y-bz-6rT" secondAttribute="leading" id="Ix5-GK-Buk"/>
+                            <constraint firstItem="yBG-ia-HBl" firstAttribute="top" secondItem="0e0-hs-ObF" secondAttribute="bottom" id="pc2-x7-xjU"/>
+                            <constraint firstItem="0e0-hs-ObF" firstAttribute="top" secondItem="FSY-pL-hcI" secondAttribute="bottom" id="ztW-mb-AQh"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="aboutTextView" destination="7J5-Ft-z5m" id="abG-8O-7Gl"/>
+                        <outlet property="cityButton" destination="w5U-kI-b7c" id="WuW-l9-dJ9"/>
+                        <outlet property="countryButton" destination="9bc-ap-Tqd" id="grs-2e-3ts"/>
+                        <outlet property="eventDay" destination="Wce-c8-9GF" id="lZZ-Sk-qa0"/>
+                        <outlet property="eventImage" destination="T2V-OO-j2i" id="mlv-5B-2Xe"/>
+                        <outlet property="eventPlaceTextFeld" destination="Nfm-l7-4cV" id="mV0-hi-eAP"/>
+                        <outlet property="eventTime" destination="OLD-WP-BxU" id="EQ1-dD-PEu"/>
+                        <outlet property="eventTitleTextField" destination="rbX-mP-jB9" id="r8s-1k-rgZ"/>
+                        <outlet property="scrollView" destination="0e0-hs-ObF" id="hiI-e3-XL4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84P-5S-ZC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="587" y="1226"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="next " width="16" height="16"/>
+    </resources>
+</document>
